@@ -716,26 +716,31 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     height: 100%;
 }
 
-/* Kenarlık temizliği Bootstrap Gridine göre */
+/* Kenarlık temizliği Bootstrap Gridine göre (row-cols-2, sm-3, md-4, xl-6) */
 @media (max-width: 575px) {
-    /* Mobil: 3 sütun (row-cols-3) */
-    .qa-grid .col:nth-child(3n) .qa-btn { border-right: none; }
-    .qa-grid .col:nth-last-child(-n+3) .qa-btn { border-bottom: none; }
+    /* Mobil (xs): 2 sütun (row-cols-2) */
+    .qa-grid .col:nth-child(2n) .qa-btn { border-right: none !important; }
+    .qa-grid .col:nth-last-child(-n+2) .qa-btn { border-bottom: none !important; }
     
-    /* Mobilde sığması için boyutları küçült */
-    .qa-btn { padding: 15px 5px; gap: 8px; }
-    .qa-icon { width: 50px; height: 50px; font-size: 20px; }
-    .qa-btn span { font-size: 9.5px; letter-spacing: 0.3px; }
+    /* Daha ferah görünüm için 2 sütuna özel boyutlar */
+    .qa-btn { padding: 20px 10px !important; gap: 10px !important; }
+    .qa-icon { width: 55px !important; height: 55px !important; font-size: 22px !important; }
+    .qa-btn span { font-size: 10.5px !important; letter-spacing: 0.5px !important; }
 }
 @media (min-width: 576px) and (max-width: 767px) {
-    /* Tablet Dikey: 4 sütun (row-cols-sm-4) */
-    .qa-grid .col:nth-child(4n) .qa-btn { border-right: none; }
-    .qa-grid .col:nth-last-child(-n+4) .qa-btn { border-bottom: none; }
+    /* Tablet Dikey (sm): 3 sütun (row-cols-3) */
+    .qa-grid .col:nth-child(3n) .qa-btn { border-right: none !important; }
+    .qa-grid .col:nth-last-child(-n+3) .qa-btn { border-bottom: none !important; }
 }
-@media (min-width: 768px) {
-    /* Masaüstü ve Tablet Yatay: 6 sütun (row-cols-md-6) */
-    .qa-grid .col:nth-child(6n) .qa-btn { border-right: none; }
-    .qa-grid .col:nth-last-child(-n+6) .qa-btn { border-bottom: none; }
+@media (min-width: 768px) and (max-width: 1199px) {
+    /* Tablet Yatay & Küçük Laptop (md, lg): 4 sütun (row-cols-4) */
+    .qa-grid .col:nth-child(4n) .qa-btn { border-right: none !important; }
+    .qa-grid .col:nth-last-child(-n+4) .qa-btn { border-bottom: none !important; }
+}
+@media (min-width: 1200px) {
+    /* Masaüstü (xl): 6 sütun (row-cols-6) */
+    .qa-grid .col:nth-child(6n) .qa-btn { border-right: none !important; }
+    .qa-grid .col:nth-last-child(-n+6) .qa-btn { border-bottom: none !important; }
 }
 
 .qa-btn::before {
