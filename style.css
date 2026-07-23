@@ -1685,3 +1685,20 @@ body.a11y-highlight-links a {
     background-color: var(--yu-crimson-dark);
     border-color: var(--yu-crimson-dark);
 }
+
+/* ============================================================
+   MOBİL EFEKTLERİ (ANİMASYONLARI) KAPATMA
+   Kullanıcı deneyimini hızlandırmak için
+   ============================================================ */
+@media (max-width: 991px) {
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+    .reveal.active {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
