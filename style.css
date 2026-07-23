@@ -338,6 +338,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         border-top: 1px solid rgba(255,255,255,0.1);
         padding-top: 10px;
         padding-bottom: 20px;
+        background: var(--yu-crimson-deep);
+        border-radius: 0 0 16px 16px;
+        padding: 15px;
+    }
+
+    /* Scroll olsa bile mobilde linkler her zaman beyaz kalmalı çünkü arkaplan koyu! */
+    .navbar.scrolled .navbar-nav .nav-link {
+        color: rgba(255,255,255,0.92) !important;
+    }
+    .navbar.scrolled .navbar-nav .nav-link:hover,
+    .navbar.scrolled .nav-item.show > .nav-link,
+    .navbar-nav .nav-link:hover {
+        background: rgba(255,255,255,0.15) !important;
+        color: #fff !important;
     }
 
     /* Mega menu mobile toggle */
