@@ -18,7 +18,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <!-- Özel CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -1017,6 +1017,41 @@
 <!-- ============================================================
      CHAT BOT (AKILLI ASİSTAN)
      ============================================================ -->
+
+<!-- ============================================================
+     ERİŞİLEBİLİRLİK MENÜSÜ
+     ============================================================ -->
+<div class="a11y-container">
+    <button class="a11y-btn" id="a11yBtn" aria-label="Erişilebilirlik Menüsü">
+        <i class="fas fa-universal-access"></i>
+    </button>
+    <div class="a11y-window" id="a11yWindow">
+        <div class="a11y-header">
+            <h5 class="mb-0 text-white" style="font-size: 16px; font-weight: 600;"><i class="fas fa-wheelchair me-2"></i> Erişilebilirlik</h5>
+            <button class="a11y-close" id="a11yClose" aria-label="Kapat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="a11y-body">
+            <button class="a11y-option" id="a11y-text-inc">
+                <i class="fas fa-search-plus"></i> Metni Büyüt
+            </button>
+            <button class="a11y-option" id="a11y-contrast">
+                <i class="fas fa-adjust"></i> Yüksek Karşıtlık
+            </button>
+            <button class="a11y-option" id="a11y-grayscale">
+                <i class="fas fa-tint-slash"></i> Siyah Beyaz (Gri)
+            </button>
+            <button class="a11y-option" id="a11y-links">
+                <i class="fas fa-link"></i> Linkleri Vurgula
+            </button>
+            <button class="a11y-option a11y-reset" id="a11y-reset">
+                <i class="fas fa-redo"></i> Ayarları Sıfırla
+            </button>
+        </div>
+    </div>
+</div>
+
 <div class="chatbot-container">
     <button class="chatbot-btn" id="chatbotBtn" aria-label="Asistanı Aç">
         <i class="fas fa-comment-dots"></i>
@@ -1059,6 +1094,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Özel JS -->
-<script src="main.js?v=2"></script>
+<script src="main.js?v=3"></script>
 </body>
 </html>
