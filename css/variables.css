@@ -1,0 +1,63 @@
+/* ===========================
+   YALOVA ÜNİVERSİTESİ - style.css
+   Bootstrap 5 Uyumlu
+   Logo renkleri: Bordo #A71C3D · Teal #4DBBC9
+   =========================== */
+
+/* ---------- RESET & BASE ---------- */
+:root {
+    /* Logo renkleri */
+    --yu-crimson:      #A71C3D;
+    --yu-crimson-dark: #7B1528;
+    --yu-crimson-deep: #5A0F1E;
+    --yu-teal:         #4DBBC9;
+    --yu-teal-dark:    #2E9EAE;
+    --yu-dark:         #2B2B2B;
+    --yu-gray:         #6B7A8D;
+    --yu-light:        #F5F7FA;
+    --yu-white:        #FFFFFF;
+    --yu-border:       rgba(167, 28, 61, 0.15);
+
+    --topbar-h:  52px;
+    --navbar-h:  130px; /* Logo için çok daha büyük navbar yüksekliği */
+    --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', 'Segoe UI', sans-serif;
+    --font-nav: 'Montserrat', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    color: var(--yu-dark);
+    background: var(--yu-white);
+    overflow-x: hidden;
+}
+
+/* ============================================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Opsiyonel gecikmeler (Stagger effect) */
+.reveal.delay-100 { transition-delay: 0.1s; }
+.reveal.delay-200 { transition-delay: 0.2s; }
+.reveal.delay-300 { transition-delay: 0.3s; }
+.reveal.delay-400 { transition-delay: 0.4s; }
+
+h1, h2, h3, h4, h5, h6, .btn, .stats-number, .marquee-logo {
+    font-family: var(--font-heading);
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; padding: 0; margin: 0; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }

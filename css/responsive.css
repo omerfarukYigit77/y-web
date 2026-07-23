@@ -1,0 +1,93 @@
+/* =============================================
+   RESPONSIVE (Mobil Düzeltmeleri)
+   ============================================= */
+@media (max-width: 1199px) { /* navbar-expand-xl breakpoint altı */
+    .navbar-collapse {
+        background: rgba(80, 10, 25, 0.98);
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 15px;
+    }
+    
+    .has-mega .mega-menu {
+        display: none;
+        background: transparent;
+        box-shadow: none;
+        padding: 10px 0 10px 15px;
+        border: none;
+    }
+    
+    .has-mega.show .mega-menu {
+        display: block;
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+    
+    .mega-col {
+        border-right: none;
+        margin-bottom: 20px;
+    }
+    .has-submenu .submenu {
+        display: none;
+        position: static;
+        box-shadow: none;
+        background: transparent;
+        border: none;
+        padding-left: 15px;
+        margin-top: 5px;
+    }
+    .has-submenu.open .submenu {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    :root { --topbar-h: 0px; --navbar-h: 70px; }
+    .topbar { display: none; }
+    .navbar-logo-img { height: 50px; padding: 5px 10px; }
+    .navbar.scrolled .navbar-logo-img { height: 45px; }
+    
+    .slider-prev { left: 15px; }
+    .slider-next { right: 15px; }
+    .slider-arrow { width: 44px; height: 44px; font-size: 14px; }
+    
+    /* Mobil Kenarlık temizliği */
+    .qa-btn { border-right: 1px solid rgba(167,28,61,0.10); border-bottom: 1px solid rgba(167,28,61,0.10); }
+    .qa-grid .col:nth-child(3n) .qa-btn { border-right: none; }
+    .qa-grid .col:nth-last-child(-n+3) .qa-btn { border-bottom: none; }
+}
+
+@media (max-width: 575px) {
+    .qa-grid .col:nth-child(3n) .qa-btn { border-right: 1px solid rgba(167,28,61,0.10); }
+    .qa-grid .col:nth-child(2n) .qa-btn { border-right: none; }
+    .qa-grid .col:nth-last-child(-n+3) .qa-btn { border-bottom: 1px solid rgba(167,28,61,0.10); }
+    .qa-grid .col:nth-last-child(-n+2) .qa-btn { border-bottom: none; }
+    
+    .qa-btn { padding: 20px 10px; }
+    .qa-icon { width: 50px; height: 50px; font-size: 20px; }
+    .qa-btn span { font-size: 9px; }
+    
+    /* Haberler mobilde alt alta */
+    .list-news { flex-direction: column; height: auto; }
+    .list-news .news-img-wrapper { width: 100%; height: 180px; }
+    .list-news .news-content { width: 100%; }
+}
+
+/* ============================================================
+   MOBİL EFEKTLERİ (ANİMASYONLARI) KAPATMA
+   Kullanıcı deneyimini hızlandırmak için
+   ============================================================ */
+@media (max-width: 991px) {
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+    .reveal.active {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

@@ -1,0 +1,436 @@
+/* =============================================
+   TOP BAR
+   ============================================= */
+.topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1040; /* Bootstrap modal altı, navbar üstü veya hizası */
+    height: var(--topbar-h);
+    background: var(--yu-crimson-deep);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.topbar-ql {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(255,255,255,0.78);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0 18px;
+    height: var(--topbar-h);
+    border-right: 1px solid rgba(255,255,255,0.10);
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+.topbar-ql:first-child { padding-left: 0; border-left: 1px solid rgba(255,255,255,0.10); }
+.topbar-ql i { font-size: 11px; color: var(--yu-teal); }
+.topbar-ql:hover {
+    background: rgba(255,255,255,0.07);
+    color: #fff;
+}
+
+.lang-btn {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: rgba(255,255,255,0.70);
+    transition: background 0.2s, color 0.2s !important;
+}
+.lang-btn.active,
+.lang-btn:hover {
+    background: rgba(255,255,255,0.15) !important;
+    color: #fff !important;
+}
+
+.topbar-sep {
+    width: 1px;
+    height: 16px;
+    background: rgba(255,255,255,0.18);
+}
+
+.topbar-social {
+    color: rgba(255,255,255,0.70);
+    font-size: 18px;
+    transition: color 0.2s, transform 0.2s;
+}
+.topbar-social:hover { color: #fff; transform: scale(1.15); }
+
+/* =============================================
+   NAVBAR (Transparent → Beyaz)
+   ============================================= */
+.navbar {
+    position: fixed;
+    top: var(--topbar-h);
+    left: 0; right: 0;
+    z-index: 1030;
+    min-height: var(--navbar-h);
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    transition: background 0.4s var(--ease), box-shadow 0.4s, border-color 0.4s;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar.scrolled {
+    background: var(--yu-white);
+    box-shadow: 0 2px 24px rgba(167,28,61,0.12);
+    border-bottom-color: var(--yu-border);
+}
+
+/* ---- LOGO ---- */
+.navbar-brand {
+    padding: 10px 0;
+    margin-right: 2rem;
+}
+
+.navbar-logo-img {
+    height: 90px; /* Yeni logo dikey olduğu için boyut biraz dengelendi */
+    width: auto;
+    object-fit: contain;
+    transition: height 0.3s;
+    /* Arka plan ve gölge kaldırıldı, şeffaf hale getirildi */
+}
+
+.navbar.scrolled .navbar-logo-img {
+    height: 70px; /* Scroll'da küçülür */
+}
+
+.navbar-logo-text {
+    font-family: 'Playfair Display', Georgia, serif; /* Daha kurumsal durması için */
+    font-size: 19px;
+    line-height: 1.15;
+    color: #fff;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+
+.navbar-logo-text strong {
+    font-weight: 700;
+}
+
+.navbar.scrolled .navbar-logo-text {
+    color: var(--yu-crimson-deep);
+}
+
+/* ---- NAV LİNKLERİ ---- */
+.navbar-nav {
+    align-items: center;
+}
+
+.navbar-nav .nav-link {
+    position: relative; /* Köprü için eklendi */
+    font-family: var(--font-nav);
+    color: rgba(255,255,255,0.92) !important;
+    font-size: 13.5px;
+    font-weight: 600; /* 700'den 600'e düşürüldü daha zarif olması için */
+    letter-spacing: 0.8px; /* Biraz daha geniş aralık */
+    /* Hover kesilmemesi için padding-bottom uzatıldı */
+    padding: 12px 16px 35px 16px !important; 
+    margin-bottom: -23px; /* Navbar hizalamasını bozmamak için negatif margin */
+    border-radius: 8px 8px 0 0;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Kendi genişliğinde köprü (diğer linkleri örtmez) */
+.navbar-nav .has-mega > .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -20px;
+    height: 20px;
+}
+.navbar.scrolled .nav-link {
+    color: var(--yu-dark) !important;
+}
+
+.navbar-nav .nav-link:hover,
+.nav-item:hover > .nav-link {
+    background: rgba(255,255,255,0.14);
+    color: #fff !important;
+}
+.navbar.scrolled .nav-link:hover,
+.navbar.scrolled .nav-item:hover > .nav-link {
+    background: rgba(167,28,61,0.08);
+    color: var(--yu-crimson) !important;
+}
+
+.caret {
+    font-size: 10px;
+    transition: transform 0.25s var(--ease);
+}
+.nav-item:hover > .nav-link .caret {
+    transform: rotate(180deg);
+}
+
+/* ---- MEGA MENU (Hover ile CSS tabanlı) ---- */
+@media (min-width: 1200px) { /* xl breakpoint for navbar-expand-xl */
+    .has-mega { position: static; }
+    
+    .mega-menu {
+        position: absolute;
+        top: 100%; /* Navbar'ın hemen bittiği yerden başlar */
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        width: 100%;
+        max-width: 1140px;
+        background: rgba(80, 10, 25, 0.95);
+        backdrop-filter: blur(22px) saturate(180%);
+        -webkit-backdrop-filter: blur(22px) saturate(180%);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 16px;
+        padding: 30px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.22s var(--ease), transform 0.22s var(--ease), visibility 0.22s;
+        box-shadow: 0 24px 64px rgba(90, 15, 30, 0.50), 0 4px 12px rgba(0,0,0,0.25);
+    }
+    
+    .nav-item.has-mega:hover .mega-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.mega-col {
+    padding: 0 15px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+.mega-col:last-child { border-right: none; }
+
+.mega-heading {
+    font-family: var(--font-nav);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--yu-teal);
+    padding-bottom: 9px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.mega-list li { margin-bottom: 2px; }
+.mega-list a {
+    display: block;
+    font-family: var(--font-nav);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 500; /* Add medium weight */
+    color: rgba(255,255,255,0.85);
+    transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+.mega-list a:hover {
+    background: rgba(255,255,255,0.10);
+    color: #fff;
+    transform: translateX(4px);
+}
+
+/* ---- ALT MENÜ (Submenu) ---- */
+@media (min-width: 1200px) {
+    .mega-list .has-submenu {
+        position: relative;
+    }
+    .mega-list .submenu {
+        position: absolute;
+        top: -15px;
+        left: 100%;
+        background: rgba(90, 15, 30, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.12);
+        min-width: 250px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        border-radius: 12px;
+        padding: 15px;
+        list-style: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(10px);
+        transition: all 0.25s var(--ease);
+        z-index: 100;
+    }
+    .mega-list .has-submenu::after {
+        content: '';
+        position: absolute;
+        top: 0; bottom: 0;
+        right: -20px; width: 20px;
+    }
+    .mega-list .has-submenu:hover .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(15px);
+    }
+}
+
+@media (max-width: 1199px) {
+    /* Enable scrolling for the mobile menu */
+    .navbar-collapse {
+        max-height: 75vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 10px;
+        padding-bottom: 20px;
+        background: var(--yu-crimson-deep);
+        border-radius: 0 0 16px 16px;
+        padding: 15px;
+    }
+
+    /* Scroll olsa bile mobilde linkler her zaman beyaz kalmalı çünkü arkaplan koyu! */
+    .navbar.scrolled .navbar-nav .nav-link {
+        color: rgba(255,255,255,0.92) !important;
+    }
+    .navbar.scrolled .navbar-nav .nav-link:hover,
+    .navbar.scrolled .nav-item.show > .nav-link,
+    .navbar-nav .nav-link:hover {
+        background: rgba(255,255,255,0.15) !important;
+        color: #fff !important;
+    }
+
+    /* Mega menu mobile toggle */
+    .mega-menu {
+        display: none;
+        padding: 10px 15px;
+        background: rgba(80, 10, 25, 0.5);
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+    .has-mega.show .mega-menu {
+        display: block;
+    }
+    .has-mega > .nav-link .caret {
+        transition: transform 0.3s ease;
+    }
+    .has-mega.show > .nav-link .caret {
+        transform: rotate(180deg);
+    }
+    
+    /* Stack mega menu columns vertically on mobile */
+    .mega-menu .row {
+        flex-direction: column;
+    }
+    .mega-col {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        padding: 15px 0;
+    }
+    .mega-col:last-child {
+        border-bottom: none;
+    }
+
+    .mega-list .has-submenu > a .fa-chevron-right {
+        transition: transform 0.25s var(--ease);
+    }
+    .mega-list .has-submenu.open > a .fa-chevron-right {
+        transform: rotate(90deg);
+    }
+    .mega-list .submenu {
+        display: none;
+        padding-left: 15px;
+        border-left: 1px solid rgba(255,255,255,0.1);
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .mega-list .has-submenu.open .submenu {
+        display: block;
+    }
+    .mega-list .submenu li a {
+        font-size: 12px;
+        color: rgba(255,255,255,0.65);
+        padding: 4px 10px;
+    }
+}
+
+/* ---- NAVBAR TOOLS ---- */
+.search-btn {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+}
+.search-btn:hover { background: rgba(255,255,255,0.14); color: #fff; }
+.navbar.scrolled .search-btn { color: var(--yu-gray); }
+.navbar.scrolled .search-btn:hover { background: rgba(167,28,61,0.08); color: var(--yu-crimson); }
+
+/* Custom Hamburger */
+.custom-toggler {
+    border: none;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+}
+.custom-toggler:focus { box-shadow: none; }
+.custom-toggler span {
+    display: block;
+    width: 24px; height: 2px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s, width 0.3s;
+}
+.navbar.scrolled .custom-toggler span { background: var(--yu-dark); }
+
+/* ---- ARAMA PANELİ ---- */
+.search-panel {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: rgba(90, 15, 30, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s var(--ease);
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+.search-panel.open { max-height: 120px; }
+
+.search-form {
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.07);
+    display: flex;
+}
+.search-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 20px;
+}
+.search-form input::placeholder { color: rgba(255,255,255,0.40); }
+.search-form button {
+    background: var(--yu-teal);
+    color: var(--yu-crimson-deep);
+    padding: 12px 28px;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+.search-form button:hover { background: #6dd0de; }
+.search-close {
+    color: rgba(255,255,255,0.60);
+    font-size: 20px;
+    width: 44px; height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+.search-close:hover { background: rgba(255,255,255,0.10); color: #fff; }
+
