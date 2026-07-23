@@ -1656,10 +1656,9 @@ body.a11y-high-contrast.a11y-grayscale > *:not(.a11y-container):not(.chatbot-con
     filter: contrast(130%) invert(100%) hue-rotate(180deg) grayscale(100%);
 }
 
-html.a11y-large-text {
-    font-size: 18px !important;
+html.a11y-large-text body {
+    zoom: 1.15;
 }
-
 body.a11y-highlight-links a {
     background-color: #ffeb3b !important;
     color: #000 !important;
