@@ -1,0 +1,502 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yalova Üniversitesi | Anasayfa</title>
+    <meta name="description" content="Yalova Üniversitesi resmi web sitesi. Akademik programlar, araştırma merkezleri ve kampüs yaşamı hakkında bilgi edinin.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Özel Stiller -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     ÜST BAR
+     ============================================================ -->
+<div class="topbar" id="topbar">
+    <div class="container-xxl h-100">
+        <div class="d-flex align-items-center justify-content-between h-100">
+
+            <!-- Sol: Hızlı Linkler -->
+            <div class="topbar-left d-none d-lg-flex align-items-center">
+                <a href="#" class="topbar-ql"><i class="fas fa-desktop"></i> Eğitim Bilgi Sistemi</a>
+                <a href="#" class="topbar-ql"><i class="fas fa-user-graduate"></i> Aday Öğrenci</a>
+                <a href="#" class="topbar-ql"><i class="fas fa-id-card"></i> Öğrenci Bilgi Sistemi</a>
+                <a href="#" class="topbar-ql"><i class="fas fa-envelope"></i> E-Posta</a>
+            </div>
+
+            <!-- Sağ: Dil + Sosyal -->
+            <div class="topbar-right d-flex align-items-center gap-2 ms-auto">
+                <a href="#" class="lang-btn active">TR</a>
+                <a href="#" class="lang-btn">EN</a>
+                <a href="#" class="lang-btn">AR</a>
+                <div class="topbar-sep d-none d-md-block"></div>
+                <div class="d-none d-md-flex align-items-center gap-2">
+                    <a href="#" aria-label="Instagram" class="topbar-social"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter" class="topbar-social"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Facebook" class="topbar-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube" class="topbar-social"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="topbar-social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     NAVBAR (Bootstrap 5 tabanlı)
+     ============================================================ -->
+<nav class="navbar navbar-expand-xl" id="navbar">
+    <div class="container-xxl">
+
+        <!-- LOGO -->
+        <a class="navbar-brand d-flex align-items-center gap-3" href="index.html" aria-label="Yalova Üniversitesi Anasayfa">
+            <img src="yeni_logo_transparent.png"
+                 alt="Yalova Üniversitesi Logo"
+                 class="navbar-logo-img">
+            <span class="navbar-logo-text">YALOVA<br><strong>ÜNİVERSİTESİ</strong></span>
+        </a>
+
+        <!-- Bootstrap Toggler (mobil) -->
+        <button class="navbar-toggler custom-toggler ms-auto" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNavContent"
+                aria-controls="mainNavContent" aria-expanded="false"
+                aria-label="Menüyü Aç/Kapat">
+            <span></span><span></span><span></span>
+        </button>
+
+        <!-- Collapse içeriği -->
+        <div class="collapse navbar-collapse" id="mainNavContent">
+
+            <!-- Menü Linkleri -->
+            <ul class="navbar-nav mx-auto gap-1">
+
+                <!-- ÜNİVERSİTEMİZ -->
+                <li class="nav-item has-mega">
+                    <a class="nav-link" href="#" role="button">
+                        ÜNİVERSİTEMİZ <i class="fas fa-chevron-down ms-1 caret"></i>
+                    </a>
+                    <div class="mega-menu">
+                        <div class="row g-0">
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Kurumsal</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Tarihçe</a></li>
+                                    <li><a href="#">Misyon &amp; Vizyon</a></li>
+                                    <li><a href="#">Organizasyon Şeması</a></li>
+                                    <li><a href="#">2024-2028 Stratejik Planı</a></li>
+                                    <li><a href="#">Sayılarla Üniversitemiz</a></li>
+                                    <li><a href="#">İş Birliklerimiz</a></li>
+                                    <li><a href="#">E-Bülten</a></li>
+                                </ul>
+                            </div>
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Yönetim</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Rektör</a></li>
+                                    <li><a href="#">Rektör Yardımcıları</a></li>
+                                    <li><a href="#">Rektör Danışmanları</a></li>
+                                    <li><a href="#">Üniversite Senatosu</a></li>
+                                    <li><a href="#">Yönetim Kurulu</a></li>
+                                    <li><a href="#">Genel Sekreterlik</a></li>
+                                </ul>
+                            </div>
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Tanıtım</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Üniversitemizi Keşfedin</a></li>
+                                    <li><a href="#">Tanıtım Filmi</a></li>
+                                    <li><a href="#">Yerleşke Haritası</a></li>
+                                    <li><a href="#">Kurumsal Kimlik</a></li>
+                                    <li><a href="#">Canlı Yayın</a></li>
+                                    <li><a href="#">Sosyal Medya</a></li>
+                                </ul>
+                            </div>
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">İdari Birimler</h6>
+                                <ul class="mega-list">
+                                    <li class="has-submenu">
+                                        <a href="#">Daire Başkanlıkları <i class="fas fa-chevron-right float-end mt-1" style="font-size: 10px; color: #ccc;"></i></a>
+                                        <ul class="submenu">
+                                            <li><a href="#">Bilgi İşlem</a></li>
+                                            <li><a href="#">Öğrenci İşleri</a></li>
+                                            <li><a href="#">İdari ve Mali İşler</a></li>
+                                            <li><a href="#">Personel</a></li>
+                                            <li><a href="#">Kütüphane ve Dokümantasyon</a></li>
+                                            <li><a href="#">Sağlık, Kültür ve Spor</a></li>
+                                            <li><a href="#">Strateji Geliştirme</a></li>
+                                            <li><a href="#">Yapı İşleri ve Teknik</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">İç Denetim Birimi</a></li>
+                                    <li><a href="#">Hukuk Müşavirliği</a></li>
+                                    <li><a href="#">Kurumsal İletişim</a></li>
+                                    <li><a href="#">Özel Kalem Müdürlüğü</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- AKADEMİK -->
+                <li class="nav-item has-mega">
+                    <a class="nav-link" href="#" role="button">
+                        AKADEMİK <i class="fas fa-chevron-down ms-1 caret"></i>
+                    </a>
+                    <div class="mega-menu">
+                        <div class="row g-0">
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Fakülteler</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Hukuk Fakültesi</a></li>
+                                    <li><a href="#">İktisadi ve İdari Bilimler</a></li>
+                                    <li><a href="#">İnsan ve Toplum Bilimleri</a></li>
+                                    <li><a href="#">İlahiyat Fakültesi</a></li>
+                                    <li><a href="#">Mühendislik Fakültesi</a></li>
+                                    <li><a href="#">Sağlık Bilimleri</a></li>
+                                    <li><a href="#">Sanat ve Tasarım</a></li>
+                                    <li><a href="#">Spor Bilimleri</a></li>
+                                    <li><a href="#">Tıp Fakültesi</a></li>
+                                </ul>
+                            </div>
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Enstitüler &amp; YO</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Lisansüstü Eğitim Enstitüsü</a></li>
+                                    <li><a href="#">Yabancı Diller Yüksekokulu</a></li>
+                                </ul>
+                                <h6 class="mega-heading mt-3">Meslek Yüksekokulları</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Altınova Meslek YO</a></li>
+                                    <li><a href="#">Armutlu Meslek YO</a></li>
+                                    <li><a href="#">Çınarcık Meslek YO</a></li>
+                                    <li><a href="#">Termal Sağlık MYO</a></li>
+                                    <li><a href="#">Yalova Meslek YO</a></li>
+                                </ul>
+                            </div>
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Rektörlüğe Bağlı</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Ar-Ge Koordinatörlüğü</a></li>
+                                    <li><a href="#">Bilimsel Araştırma Projeleri</a></li>
+                                    <li><a href="#">Büyük Veri Koordinatörlüğü</a></li>
+                                    <li><a href="#">Dış İlişkiler (YUDİK)</a></li>
+                                    <li><a href="#">Kariyer Merkezi</a></li>
+                                    <li><a href="#">Kalite Koordinatörlüğü</a></li>
+                                    <li><a href="#">Pedagojik Formasyon</a></li>
+                                    <li><a href="#">Sürdürülebilirlik</a></li>
+                                    <li><a href="#">Toplumsal Katkı</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- ARAŞTIRMA -->
+                <li class="nav-item has-mega">
+                    <a class="nav-link" href="#" role="button">
+                        ARAŞTIRMA <i class="fas fa-chevron-down ms-1 caret"></i>
+                    </a>
+                    <div class="mega-menu">
+                        <div class="row g-0">
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Araştırma Merkezleri</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Acil Durum ve Afet (YÜAFMER)</a></li>
+                                    <li><a href="#">Engelli Çalışmaları (EUAM)</a></li>
+                                    <li><a href="#">Fizyoterapi ve Rehabilitasyon</a></li>
+                                    <li><a href="#">Girişimcilik (YÜGİM)</a></li>
+                                    <li><a href="#">İslami Çalışmalar (İCAM)</a></li>
+                                    <li><a href="#">Kadın ve Aile (YÜKAM)</a></li>
+                                    <li><a href="#">Merkezi Araştırma Lab. (YÜMERLAB)</a></li>
+                                </ul>
+                            </div>
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Diğer Merkezler</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Siber Güvenlik Merkezi</a></li>
+                                    <li><a href="#">Sürekli Eğitim (YÜSEM)</a></li>
+                                    <li><a href="#">Teknoloji Transfer Ofisi</a></li>
+                                    <li><a href="#">Türk Dünyası Çalışmaları</a></li>
+                                    <li><a href="#">Türkçe Öğretimi (YTÖMER)</a></li>
+                                    <li><a href="#">Uluslararası Öğrenci (İSO)</a></li>
+                                    <li><a href="#">Uzaktan Eğitim (YÜZEM)</a></li>
+                                </ul>
+                            </div>
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Projeler &amp; Destekler</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">TÜBİTAK Projeleri</a></li>
+                                    <li><a href="#">AB Projeleri</a></li>
+                                    <li><a href="#">BAP Projeleri</a></li>
+                                    <li><a href="#">Dış Kaynaklı Projeler</a></li>
+                                    <li><a href="#">Erasmus+ Programı</a></li>
+                                    <li><a href="#">Mevlana Programı</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- ÖĞRENCİ -->
+                <li class="nav-item has-mega">
+                    <a class="nav-link" href="#" role="button">
+                        ÖĞRENCİ <i class="fas fa-chevron-down ms-1 caret"></i>
+                    </a>
+                    <div class="mega-menu">
+                        <div class="row g-0">
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Öğrenci Hizmetleri</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Aday Öğrenciler</a></li>
+                                    <li><a href="#">Öğrenci Bilgi Sistemi</a></li>
+                                    <li><a href="#">Akademik Takvim</a></li>
+                                    <li><a href="#">Aylık Yemek Menüsü</a></li>
+                                    <li><a href="#">Diploma Sorgulama</a></li>
+                                    <li><a href="#">Mezun Portalı</a></li>
+                                    <li><a href="#">Telefon Rehberi</a></li>
+                                </ul>
+                            </div>
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Kampüs Yaşamı</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Yalova'da Yaşam</a></li>
+                                    <li><a href="#">Yerleşkede Hayat</a></li>
+                                    <li><a href="#">Uzaktan Eğitim (YÜZEM)</a></li>
+                                    <li><a href="#">Öğrenci Oryantasyonu</a></li>
+                                    <li><a href="#">Sağlık, Kültür ve Spor</a></li>
+                                    <li><a href="#">Engelsiz Üniversite</a></li>
+                                    <li><a href="#">Ziyaret Talep Formu</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- KALİTE -->
+                <li class="nav-item has-mega">
+                    <a class="nav-link" href="#" role="button">
+                        KALİTE <i class="fas fa-chevron-down ms-1 caret"></i>
+                    </a>
+                    <div class="mega-menu">
+                        <div class="row g-0">
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Kalite Sistemi</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">BKYS Girişi</a></li>
+                                    <li><a href="#">BKYS Eğitim Videosu</a></li>
+                                    <li><a href="#">BKYS Dokümantasyon</a></li>
+                                    <li><a href="#">Danışma Kurulu</a></li>
+                                </ul>
+                            </div>
+                            <div class="col mega-col">
+                                <h6 class="mega-heading">Kalite Faaliyetleri</h6>
+                                <ul class="mega-list">
+                                    <li><a href="#">Akran Değerlendirme</a></li>
+                                    <li><a href="#">Dijital Dönüşüm Çalışmaları</a></li>
+                                    <li><a href="#">Kalite Öğrenci Faaliyetleri</a></li>
+                                    <li><a href="#">Akreditasyon Toplantıları</a></li>
+                                    <li><a href="#">Oryantasyon Çalışmaları</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- İLETİŞİM -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">İLETİŞİM</a>
+                </li>
+
+            </ul>
+
+            <!-- Arama Butonu -->
+            <div class="navbar-tools d-flex align-items-center gap-2">
+                <button class="search-btn" id="searchBtn" aria-label="Arama Yap">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+        </div><!-- /.collapse -->
+    </div><!-- /.container-xxl -->
+
+    <!-- Arama Paneli -->
+    <div class="search-panel" id="searchPanel">
+        <div class="container-xxl py-3">
+            <div class="d-flex align-items-center gap-3">
+                <form class="search-form flex-grow-1" action="#">
+                    <input type="text" id="searchInput" placeholder="Üniversitede ara..." autocomplete="off">
+                    <button type="submit"><i class="fas fa-search"></i> Ara</button>
+                </form>
+                <button class="search-close" id="searchClose" aria-label="Kapat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================================
+     PAGE HEADER
+     ============================================================ -->
+<section class="page-header position-relative" style="background-color: var(--yu-crimson); color: white; padding-top: 180px; padding-bottom: 80px;">
+    <div class="container-xxl position-relative" style="z-index: 2;">
+        <h1 class="display-4 fw-bold mb-3" style="font-family: 'Playfair Display', serif;">Haberler</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none"><i class="fas fa-home"></i> Anasayfa</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Haberler</li>
+            </ol>
+        </nav>
+    </div>
+    <!-- Hafif bir desen eklentisi -->
+    <div class="bg-pattern" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.05; background-image: radial-gradient(#fff 2px, transparent 2px); background-size: 30px 30px; z-index: 1;"></div>
+</section>
+
+<!-- ============================================================
+     TÜM HABERLER GRID
+     ============================================================ -->
+<section class="all-news-section py-5" style="background-color: var(--yu-light);">
+    <div class="container-xxl py-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            
+            <!-- Haber 1 -->
+            <div class="col">
+                <a href="haber-detay.html" class="news-card">
+                    <div class="news-img-wrapper" style="height: 240px;">
+                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80" alt="Haber 1">
+                    </div>
+                    <div class="news-content p-4">
+                        <div class="news-meta mb-3">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 14 Eki 2026</span>
+                            <span class="news-category">Akademik</span>
+                        </div>
+                        <h3 class="news-title fs-5 mb-3">Yalova Üniversitesi 2026-2027 Akademik Yılı Açılış Töreni Gerçekleştirildi</h3>
+                        <p class="news-excerpt text-muted small mb-0" style="line-height: 1.6;">Rektörümüzün katılımıyla gerçekleşen törende yeni eğitim yılına dair vizyon projeleri tanıtıldı.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Haber 2 -->
+            <div class="col">
+                <a href="#" class="news-card">
+                    <div class="news-img-wrapper" style="height: 240px;">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Haber 2">
+                    </div>
+                    <div class="news-content p-4">
+                        <div class="news-meta mb-3">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 12 Eki 2026</span>
+                            <span class="news-category">Araştırma</span>
+                        </div>
+                        <h3 class="news-title fs-5 mb-3">TÜBİTAK Projelerinde Üniversitemizden Büyük Başarı</h3>
+                        <p class="news-excerpt text-muted small mb-0" style="line-height: 1.6;">Öğrencilerimiz ve akademisyenlerimiz tarafından sunulan 15 yeni proje kabul edildi.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Haber 3 -->
+            <div class="col">
+                <a href="#" class="news-card">
+                    <div class="news-img-wrapper" style="height: 240px;">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Haber 3">
+                    </div>
+                    <div class="news-content p-4">
+                        <div class="news-meta mb-3">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 08 Eki 2026</span>
+                            <span class="news-category">Kampüs</span>
+                        </div>
+                        <h3 class="news-title fs-5 mb-3">Yalova Teknopark Ek Binasının Temeli Atıldı</h3>
+                        <p class="news-excerpt text-muted small mb-0" style="line-height: 1.6;">İnovasyona yeni bir adım olan ek binanın temeli görkemli bir törenle atıldı.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Haber 4 -->
+            <div class="col">
+                <a href="#" class="news-card">
+                    <div class="news-img-wrapper" style="height: 240px;">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Haber 4">
+                    </div>
+                    <div class="news-content p-4">
+                        <div class="news-meta mb-3">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 05 Eki 2026</span>
+                            <span class="news-category">Ödül</span>
+                        </div>
+                        <h3 class="news-title fs-5 mb-3">Yeşil Kampüs Projemiz Uluslararası Ödüle Layık Görüldü</h3>
+                        <p class="news-excerpt text-muted small mb-0" style="line-height: 1.6;">Sürdürülebilirlik hedeflerimiz doğrultusunda yaptığımız çalışmalar Eco-Campus ödülünü getirdi.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Haber 5 -->
+            <div class="col">
+                <a href="#" class="news-card">
+                    <div class="news-img-wrapper" style="height: 240px;">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80" alt="Haber 5">
+                    </div>
+                    <div class="news-content p-4">
+                        <div class="news-meta mb-3">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 01 Eki 2026</span>
+                            <span class="news-category">Öğrenci</span>
+                        </div>
+                        <h3 class="news-title fs-5 mb-3">Yeni Kayıt Yapan Öğrencilerimiz İçin Oryantasyon Programı</h3>
+                        <p class="news-excerpt text-muted small mb-0" style="line-height: 1.6;">Üniversitemize yeni katılan öğrencilerimiz için üç gün süren kapsamlı bir program düzenlendi.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Haber 6 -->
+            <div class="col">
+                <a href="#" class="news-card">
+                    <div class="news-img-wrapper" style="height: 240px;">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="Haber 6">
+                    </div>
+                    <div class="news-content p-4">
+                        <div class="news-meta mb-3">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 28 Eyl 2026</span>
+                            <span class="news-category">Uluslararası</span>
+                        </div>
+                        <h3 class="news-title fs-5 mb-3">Erasmus+ Öğrenci Değişim Programı Başvuruları Başladı</h3>
+                        <p class="news-excerpt text-muted small mb-0" style="line-height: 1.6;">Avrupa'nın önde gelen üniversitelerinde eğitim alma fırsatını kaçırmayın.</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Haberler Sayfalandırma" class="mt-5 pt-3">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Önceki</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#" style="background-color: var(--yu-crimson); border-color: var(--yu-crimson);">1</a></li>
+                <li class="page-item"><a class="page-link" href="#" style="color: var(--yu-crimson);">2</a></li>
+                <li class="page-item"><a class="page-link" href="#" style="color: var(--yu-crimson);">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" style="color: var(--yu-crimson);">Sonraki</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Özel JS -->
+<script src="main.js"></script>
+</body>
+</html>
