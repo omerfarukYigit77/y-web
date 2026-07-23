@@ -330,6 +330,47 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 @media (max-width: 1199px) {
+    /* Enable scrolling for the mobile menu */
+    .navbar-collapse {
+        max-height: 75vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+
+    /* Mega menu mobile toggle */
+    .mega-menu {
+        display: none;
+        padding: 10px 15px;
+        background: rgba(80, 10, 25, 0.5);
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+    .has-mega.show .mega-menu {
+        display: block;
+    }
+    .has-mega > .nav-link .caret {
+        transition: transform 0.3s ease;
+    }
+    .has-mega.show > .nav-link .caret {
+        transform: rotate(180deg);
+    }
+    
+    /* Stack mega menu columns vertically on mobile */
+    .mega-menu .row {
+        flex-direction: column;
+    }
+    .mega-col {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        padding: 15px 0;
+    }
+    .mega-col:last-child {
+        border-bottom: none;
+    }
+
     .mega-list .has-submenu > a .fa-chevron-right {
         transition: transform 0.25s var(--ease);
     }
@@ -879,6 +920,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     font-size: 15px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -1557,8 +1599,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* Modifiers */
 body.a11y-high-contrast {
-    filter: contrast(130%) invert(100%) hue-rotate(180deg);
     background-color: #fff;
+}
+body.a11y-high-contrast > *:not(.a11y-container):not(.chatbot-container) {
+    filter: contrast(130%) invert(100%) hue-rotate(180deg);
 }
 body.a11y-high-contrast img, 
 body.a11y-high-contrast video,
@@ -1567,10 +1611,13 @@ body.a11y-high-contrast .slide {
 }
 
 body.a11y-grayscale {
+    background-color: #fff;
+}
+body.a11y-grayscale > *:not(.a11y-container):not(.chatbot-container) {
     filter: grayscale(100%);
 }
 
-body.a11y-high-contrast.a11y-grayscale {
+body.a11y-high-contrast.a11y-grayscale > *:not(.a11y-container):not(.chatbot-container) {
     filter: contrast(130%) invert(100%) hue-rotate(180deg) grayscale(100%);
 }
 
@@ -1583,4 +1630,37 @@ body.a11y-highlight-links a {
     color: #000 !important;
     text-decoration: underline !important;
     border-radius: 2px;
+}
+
+/* ============================================================
+   DUYURU POPUP (MODAL)
+   ============================================================ */
+.custom-popup {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(167, 28, 61, 0.15);
+    overflow: hidden;
+}
+.custom-popup .modal-header {
+    background-color: transparent;
+}
+.popup-icon-wrap {
+    width: 70px;
+    height: 70px;
+    background: rgba(167, 28, 61, 0.1);
+    color: var(--yu-crimson);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin: 0 auto;
+}
+.popup-btn {
+    background-color: var(--yu-crimson);
+    border-color: var(--yu-crimson);
+}
+.popup-btn:hover {
+    background-color: var(--yu-crimson-dark);
+    border-color: var(--yu-crimson-dark);
 }

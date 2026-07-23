@@ -243,11 +243,23 @@ console.log('MAIN.JS is loading!');
         });
     }
 
+    // ============================================================
+    // DUYURU POPUP (MODAL) OTOMATİK GÖSTERİM
+    // ============================================================
+    const announcementModalElement = document.getElementById('announcementModal');
+    if (announcementModalElement) {
+        const announcementModal = new bootstrap.Modal(announcementModalElement);
+        // Sayfa yüklendikten 1 saniye sonra göster
+        setTimeout(() => {
+            announcementModal.show();
+        }, 1000);
+    }
+
 })();
 
 
 /* ====================================================
-   SCROLL REVEAL (A�a�� Kayd�r�rken Ge�i� Efektleri)
+   SCROLL REVEAL (Aa Kaydrrken Gei Efektleri)
    ==================================================== */
 function revealOnScroll() {
     const reveals = document.querySelectorAll('.reveal');
