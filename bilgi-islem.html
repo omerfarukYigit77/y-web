@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yalova Üniversitesi | Bilgi İşlem Daire Başkanlığı</title>
+    <meta name="description" content="Yalova Üniversitesi resmi web sitesi. Akademik programlar, araştırma merkezleri ve kampüs yaşamı hakkında bilgi edinin.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Özel CSS -->
+    <link rel="stylesheet" href="style.css?v=15">
+
+    <style>
+        /* Slider tam ekran (büyük) görünsün diye navbar şeffaf kalıyor */
+        
+        /* Navbar'ı bilgi işlem sayfasına özel biraz daha saydam (transparent) yapıyoruz */
+        .navbar {
+            background: transparent !important;
+            backdrop-filter: blur(3px) !important;
+            -webkit-backdrop-filter: blur(3px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+        }
+        
+        /* Navbar scroll olduğunda (aşağı inildiğinde) tekrar tamamen beyaz olmalı ki logoyla bütünleşsin */
+        .navbar.scrolled {
+            background: var(--yu-white) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-bottom-color: var(--yu-border) !important;
+        }
+        
+        .navbar .navbar-brand {
+            margin-right: 2rem;
+        }
+        
+        /* Logoyu büyütüyoruz */
+        .navbar .navbar-logo-img { 
+            height: 125px !important;
+            transition: all 0.3s ease;
+        }
+        
+        /* Navbar şeffafken yazı beyaz, scroll olunca koyu renk */
+        .navbar .navbar-logo-text { color: #fff !important; }
+
+        /* Navbar scroll olup beyaz arka plan aldığında boyutu küçültüyoruz */
+        .navbar.scrolled .navbar-logo-img { 
+            height: 85px !important; 
+        }
+        .navbar.scrolled .navbar-logo-text { color: var(--yu-crimson-deep) !important; }
+        
+        /* Mobil menü ikon rengi (beyaz kalsın şeffaf navbarda) */
+        .custom-toggler span { background-color: var(--yu-white) !important; }
+        .navbar.scrolled .custom-toggler span { background-color: var(--yu-dark) !important; }
+        
+        /* Özel açılır menü (Dropdown) stili */
+        @media (min-width: 1200px) {
+            .navbar .nav-item.dropdown-custom { position: relative !important; }
+            .navbar .nav-item.dropdown-custom .mega-menu {
+                width: max-content !important;
+                min-width: 220px !important;
+                left: 0 !important;
+                transform: translateY(10px) !important;
+                padding: 15px !important;
+            }
+            .navbar .nav-item.dropdown-custom:hover .mega-menu {
+                transform: translateY(0) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     ÜST BAR
+     ============================================================ -->
+<div class="topbar" id="topbar">
+    <div class="container-xxl h-100">
+        <div class="d-flex align-items-center justify-content-between h-100">
+
+            <!-- Sol: Hızlı Linkler -->
+            <div class="topbar-left d-none d-lg-flex align-items-center">
+                <a href="#" class="topbar-ql"><i class="fas fa-desktop"></i> Eğitim Bilgi Sistemi</a>
+                <a href="#" class="topbar-ql"><i class="fas fa-user-graduate"></i> Aday Öğrenci</a>
+                <a href="#" class="topbar-ql"><i class="fas fa-id-card"></i> Öğrenci Bilgi Sistemi</a>
+                <a href="#" class="topbar-ql"><i class="fas fa-envelope"></i> E-Posta</a>
+            </div>
+
+            <!-- Sağ: Dil + Sosyal -->
+            <div class="topbar-right d-flex align-items-center gap-2 ms-auto">
+                <a href="#" class="lang-btn active">TR</a>
+                <a href="#" class="lang-btn">EN</a>
+                <a href="#" class="lang-btn">AR</a>
+                <div class="topbar-sep d-none d-md-block"></div>
+                <div class="d-none d-md-flex align-items-center gap-2">
+                    <a href="#" aria-label="Instagram" class="topbar-social"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter" class="topbar-social"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Facebook" class="topbar-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube" class="topbar-social"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="topbar-social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     NAVBAR (Bootstrap 5 tabanlı)
+     ============================================================ -->
+<nav class="navbar navbar-expand-xl" id="navbar">
+    <div class="container-xxl">
+
+        <!-- LOGO -->
+        <a class="navbar-brand d-flex align-items-center gap-3" href="index.html" aria-label="Yalova Üniversitesi Anasayfa">
+            <img src="images/Yalova-Universitesi-Logo.png"
+                 alt="Bilgi İşlem Logo"
+                 class="navbar-logo-img">
+            <span class="navbar-logo-text" style="font-size: 13px; line-height: 1.2;">
+                YALOVA ÜNİVERSİTESİ<br>
+                <strong style="font-size: 15px;">BİLGİ İŞLEM DAİRE BAŞKANLIĞI</strong>
+            </span>
+        </a>
+
+        <!-- Bootstrap Toggler (mobil) -->
+        <button class="navbar-toggler custom-toggler ms-auto" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNavContent"
+                aria-controls="mainNavContent" aria-expanded="false"
+                aria-label="Menüyü Aç/Kapat">
+            <span></span><span></span><span></span>
+        </button>
+
+        <!-- Collapse içeriği -->
+        <div class="collapse navbar-collapse" id="mainNavContent">
+
+            <!-- Menü Linkleri -->
+            <ul class="navbar-nav mx-auto gap-1">
+
+                <!-- BİLGİ İŞLEM ÖZEL LİNKLERİ -->
+                
+                <!-- BAŞKANLIĞIMIZ -->
+                <li class="nav-item has-mega dropdown-custom">
+                    <a class="nav-link" href="#" role="button">
+                        BAŞKANLIĞIMIZ <i class="fas fa-chevron-down ms-1 caret"></i>
+                    </a>
+                    <div class="mega-menu">
+                        <ul class="mega-list list-unstyled mb-0">
+                            <li><a href="#">Hakkımızda</a></li>
+                            <li><a href="#">Organizasyon Şeması</a></li>
+                            <li><a href="#">Personelimiz</a></li>
+                            <li><a href="#">Daire Başkanlarımız</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- MEVZUAT -->
+                <li class="nav-item has-mega dropdown-custom">
+                    <a class="nav-link" href="#" role="button">
+                        MEVZUAT <i class="fas fa-chevron-down ms-1 caret"></i>
+                    </a>
+                    <div class="mega-menu">
+                        <ul class="mega-list list-unstyled mb-0">
+                            <li><a href="#">Kanunlar</a></li>
+                            <li><a href="#">Yönetmelikler</a></li>
+                            <li><a href="#">Yönergeler</a></li>
+                            <li><a href="#">Usul ve Esaslar</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- BAĞLANTILAR -->
+                <li class="nav-item has-mega dropdown-custom">
+                    <a class="nav-link" href="#" role="button">
+                        BAĞLANTILAR <i class="fas fa-chevron-down ms-1 caret"></i>
+                    </a>
+                    <div class="mega-menu">
+                        <ul class="mega-list list-unstyled mb-0">
+                            <li><a href="#">E-Devlet</a></li>
+                            <li><a href="#">YÖK</a></li>
+                            <li><a href="#">Üniversitemiz</a></li>
+                            <li><a href="#">Öğrenci Bilgi Sistemi</a></li>
+                            <li><a href="#">Eğitim Bilgi Sistemi</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- HİZMETLERİMİZ -->
+                <li class="nav-item has-mega dropdown-custom">
+                    <a class="nav-link" href="#" role="button">
+                        HİZMETLERİMİZ <i class="fas fa-chevron-down ms-1 caret"></i>
+                    </a>
+                    <div class="mega-menu">
+                        <ul class="mega-list list-unstyled mb-0">
+                            <li><a href="#">E-Posta Hizmetleri</a></li>
+                            <li><a href="#">Ağ ve İnternet Hizmetleri</a></li>
+                            <li><a href="#">Yazılım Hizmetleri</a></li>
+                            <li><a href="#">Donanım ve Teknik Destek</a></li>
+                            <li><a href="#">Web Barındırma</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- KALİTE -->
+                <li class="nav-item has-mega dropdown-custom">
+                    <a class="nav-link" href="#" role="button">
+                        KALİTE <i class="fas fa-chevron-down ms-1 caret"></i>
+                    </a>
+                    <div class="mega-menu">
+                        <ul class="mega-list list-unstyled mb-0">
+                            <li><a href="#">Kalite Politikamız</a></li>
+                            <li><a href="#">Hedeflerimiz</a></li>
+                            <li><a href="#">İç Değerlendirme Raporları</a></li>
+                            <li><a href="#">Anketler</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- İLETİŞİM -->
+                <li class="nav-item">
+                    <a class="nav-link" href="iletisim.html">İLETİŞİM</a>
+                </li>
+
+            </ul>
+
+            <!-- Arama Butonu -->
+            <div class="navbar-tools d-flex align-items-center gap-2">
+                <button class="search-btn" id="searchBtn" aria-label="Arama Yap">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+        </div><!-- /.collapse -->
+    </div><!-- /.container-xxl -->
+
+    <!-- Arama Paneli -->
+    <div class="search-panel" id="searchPanel">
+        <div class="container-xxl py-3">
+            <div class="d-flex align-items-center gap-3">
+                <form class="search-form flex-grow-1" action="#">
+                    <input type="text" id="searchInput" placeholder="Üniversitede ara..." autocomplete="off">
+                    <button type="submit"><i class="fas fa-search"></i> Ara</button>
+                </form>
+                <button class="search-close" id="searchClose" aria-label="Kapat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================================
+     HERO SLIDER
+     ============================================================ -->
+<section class="hero-slider" id="heroSlider" aria-label="Ana Slayt" aria-roledescription="carousel">
+
+    <!-- Slide 1 -->
+    <div class="slide active" style="background-image:url('images/Bilgi-i%C5%9Flem-slideryeni.png')" aria-hidden="false">
+        <div class="slide-overlay"></div>
+        <div class="container-xxl h-100">
+            <div class="slide-content">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<style>
+    .service-card { transition: all 0.3s ease; cursor: pointer; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important; border-color: var(--yu-crimson) !important; }
+    .service-card:hover .icon-wrap { background: var(--yu-crimson) !important; color: white !important; }
+    #bidb-sidebar .list-group-item:hover { background-color: #f8f9fa; color: var(--yu-crimson) !important; }
+    #bidb-sidebar .list-group-item:hover i { color: var(--yu-crimson) !important; }
+    #bidb-sidebar .list-group-item.active:hover { background-color: var(--yu-crimson-dark); color: white !important; }
+    #bidb-sidebar .list-group-item.active:hover i { color: white !important; }
+</style>
+
+<!-- ============================================================
+     PORTAL İÇERİK BÖLÜMÜ
+     ============================================================ -->
+<section class="content-section" style="background-color: #f8f9fa; padding-top: 40px; padding-bottom: 3rem;">
+    <div class="container-xxl">
+        <div class="row g-4">
+            
+            <!-- SOL MENÜ (SİDEBAR) -->
+            <div class="col-lg-3">
+                <div class="bg-white rounded-4 shadow-sm p-4 mb-4 text-center">
+                    <img src="images/bilgi-islem-logo.png" alt="BİDB Logo" class="img-fluid mb-3" style="max-height: 180px;">
+                    <h6 class="fw-bold text-dark mb-0">YALOVA ÜNİVERSİTESİ</h6>
+                    <p class="small text-muted mb-0">Bilgi İşlem Daire Başkanlığı</p>
+                </div>
+
+
+                
+                <!-- Hızlı İletişim -->
+                <div class="bg-white rounded-4 shadow-sm p-4 mt-4">
+                    <h6 class="fw-bold mb-3 border-bottom pb-2">Destek Masası</h6>
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <i class="bi bi-telephone-fill text-danger"></i>
+                        <span class="small fw-bold">0 (226) 815 52 52</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="bi bi-envelope-fill text-danger"></i>
+                        <span class="small fw-bold">bilgiislem@yalova.edu.tr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAĞ İÇERİK (PORTAL GRID) -->
+            <div class="col-lg-9">
+                <h4 class="fw-bold mb-4" style="color: var(--yu-dark);">Bilişim Hizmetleri</h4>
+                
+                <div class="row g-4 mb-5 text-center">
+                    <!-- Servis 1 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-globe"></i>
+                            </div>
+                            <span class="small fw-semibold">İnternet Bağlantı</span>
+                        </a>
+                    </div>
+                    <!-- Servis 2 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-pen"></i>
+                            </div>
+                            <span class="small fw-semibold">e-imza Kurulumu</span>
+                        </a>
+                    </div>
+                    <!-- Servis 3 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-envelope-at"></i>
+                            </div>
+                            <span class="small fw-semibold">Mail Sistemi</span>
+                        </a>
+                    </div>
+                    <!-- Servis 4 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-file-earmark-text"></i>
+                            </div>
+                            <span class="small fw-semibold">Eğitim Dökümanları</span>
+                        </a>
+                    </div>
+                    <!-- Servis 5 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-headset"></i>
+                            </div>
+                            <span class="small fw-semibold">Destek</span>
+                        </a>
+                    </div>
+                    <!-- Servis 6 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-server"></i>
+                            </div>
+                            <span class="small fw-semibold">Dosya Sunucusu</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Servis 7 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-telephone-outbound"></i>
+                            </div>
+                            <span class="small fw-semibold">YuniRehber</span>
+                        </a>
+                    </div>
+                    <!-- Servis 8 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-mortarboard"></i>
+                            </div>
+                            <span class="small fw-semibold">ÖBS Kullanım Kılavuzu</span>
+                        </a>
+                    </div>
+                    <!-- Servis 9 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-window-desktop"></i>
+                            </div>
+                            <span class="small fw-semibold">Web Sitesi Yönetimi</span>
+                        </a>
+                    </div>
+                    <!-- Servis 10 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-layout-text-window-reverse"></i>
+                            </div>
+                            <span class="small fw-semibold">Web Sitesi Şablonları</span>
+                        </a>
+                    </div>
+                    <!-- Servis 11 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <span class="small fw-semibold">Öğrenci Topluluk</span>
+                        </a>
+                    </div>
+                    <!-- Servis 12 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="text-decoration-none text-dark service-card d-block p-3 rounded-4 h-100">
+                            <div class="icon-wrap mx-auto mb-2" style="font-size: 40px; color: var(--yu-crimson);">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <span class="small fw-semibold">IP Telefon Kullanımı</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Alt Bilgi Paneli / Duyurular / Haberler -->
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="bg-white rounded-4 shadow-sm p-4 h-100 border-top border-4 border-danger">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <i class="bi bi-megaphone-fill text-danger fs-5"></i>
+                                <h6 class="fw-bold mb-0">Güncel Duyurular</h6>
+                            </div>
+                            <ul class="list-unstyled mb-0 small">
+                                <li class="mb-3 pb-2 border-bottom">
+                                    <a href="#" class="text-decoration-none text-dark fw-semibold d-block">Oltalama (Phishing) Saldırılarına Karşı Dikkat!</a>
+                                    <span class="text-muted" style="font-size: 12px;">12.10.2023</span>
+                                </li>
+                                <li class="mb-3 pb-2 border-bottom">
+                                    <a href="#" class="text-decoration-none text-dark fw-semibold d-block">Planlı Ağ Kesintisi Bildirimi</a>
+                                    <span class="text-muted" style="font-size: 12px;">05.10.2023</span>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-decoration-none text-dark fw-semibold d-block">Yeni E-Posta Sistemine Geçiş Süreci</a>
+                                    <span class="text-muted" style="font-size: 12px;">22.09.2023</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-sm btn-outline-danger w-100 mt-3 rounded-pill">Tüm Duyurular</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-12">
+                        <div class="bg-white rounded-4 shadow-sm p-4 h-100 border-top border-4" style="border-color: var(--yu-teal) !important;">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <i class="bi bi-newspaper fs-5" style="color: var(--yu-teal);"></i>
+                                <h6 class="fw-bold mb-0">BİDB Haberleri</h6>
+                            </div>
+                            <ul class="list-unstyled mb-0 small">
+                                <li class="mb-3 pb-2 border-bottom">
+                                    <a href="#" class="text-decoration-none text-dark fw-semibold d-block">Üniversitemiz Yeni Veri Merkezine Kavuşuyor</a>
+                                    <span class="text-muted" style="font-size: 12px;">01.11.2023</span>
+                                </li>
+                                <li class="mb-3 pb-2 border-bottom">
+                                    <a href="#" class="text-decoration-none text-dark fw-semibold d-block">Yapay Zeka Destekli Güvenlik Altyapısı</a>
+                                    <span class="text-muted" style="font-size: 12px;">28.10.2023</span>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-decoration-none text-dark fw-semibold d-block">Öğrenciler İçin Ücretsiz Yazılım Paketleri</a>
+                                    <span class="text-muted" style="font-size: 12px;">15.10.2023</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-sm w-100 mt-3 rounded-pill text-white" style="background-color: var(--yu-teal);">Tüm Haberler</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12">
+                        <div class="bg-white rounded-4 shadow-sm p-4 h-100 border-top border-4 border-primary">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <i class="bi bi-file-earmark-pdf-fill text-primary fs-5"></i>
+                                <h6 class="fw-bold mb-0">Sık Kullanılan Belgeler</h6>
+                            </div>
+                            <ul class="list-unstyled mb-0 small">
+                                <li class="mb-3 pb-2 border-bottom">
+                                    <a href="#" class="text-decoration-none text-dark fw-semibold d-flex align-items-center gap-2">
+                                        <i class="bi bi-download text-muted"></i> E-Posta Hesap Talep Formu
+                                    </a>
+                                </li>
+                                <li class="mb-3 pb-2 border-bottom">
+                                    <a href="#" class="text-decoration-none text-dark fw-semibold d-flex align-items-center gap-2">
+                                        <i class="bi bi-download text-muted"></i> Sunucu Barındırma Formu
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-decoration-none text-dark fw-semibold d-flex align-items-center gap-2">
+                                        <i class="bi bi-download text-muted"></i> Bilgi Güvenliği İhlal Bildirim Formu
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer mt-5">
+    <div class="container">
+        <div class="row gy-5">
+            <!-- Kolon 1: İletişim -->
+            <div class="col-lg-3 col-md-6">
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <img src="yeni_logo_transparent.png" alt="Yalova Üniversitesi Logo" style="height: 70px; width: auto; filter: brightness(0) invert(1);">
+                    <span style="color: #fff; font-family: 'Poppins', sans-serif; font-size: 22px; line-height: 1.2; letter-spacing: 1px;">
+                        YALOVA<br><strong style="font-weight: 700;">ÜNİVERSİTESİ</strong>
+                    </span>
+                </div>
+                <p>Yalova Üniversitesi Rektrlüğü,<br>
+                Bahçelievler Mah. Çınarcık Yolu<br>
+                Caddesi No: 26 Merkez - YALOVA,<br>
+                77200</p>
+                
+                <p class="mt-4 mb-2"><a href="tel:02268155000" class="fw-bold" style="color: #ccc;">0226 815 50 00</a></p>
+                <p class="mb-1"><a href="mailto:bilgi@yalova.edu.tr" class="text-white">bilgi@yalova.edu.tr</a></p>
+                <p><a href="mailto:yalovauÜÜniversitesi@hs01.kep.tr" class="text-white">yalovauÜÜniversitesi@hs01.kep.tr</a></p>
+            </div>
+            
+            <!-- Kolon 2: ÜNİVERSİTEMİZ -->
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">ÜNİVERSİTEMİZ</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Tarihçe</a></li>
+                    <li><a href="#">Misyon, Vizyon, Deşerlerimiz</a></li>
+                    <li><a href="#">2024-2028 Stratejik Plan</a></li>
+                    <li><a href="#">Üniversitemizi Keşfedin</a></li>
+                    <li><a href="#">Sayılarla Üniversitemiz</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </div>
+            
+            <!-- Kolon 3: Ynetim -->
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">YÖNETİM</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Rektörlük</a></li>
+                    <li><a href="#">Genel Sekreter</a></li>
+                    <li><a href="#">Daire Başkanlıkları</a></li>
+                    <li><a href="#">Müdürlükler</a></li>
+                    <li><a href="#">Evrak Doşrulama</a></li>
+                    <li><a href="#">Diploma Doşrulama</a></li>
+                </ul>
+            </div>
+            
+            <!-- Kolon 4: Öğrenci -->
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">ÖĞRENCİ</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Yerleşke</a></li>
+                    <li><a href="#">Öğrenci Bilgi Sistemi</a></li>
+                    <li><a href="#">YUZEM Uzaktan Eğitim Merkezi</a></li>
+                    <li><a href="#">Akademik Takvim</a></li>
+                    <li><a href="#">Aylık Yemek Menüsü</a></li>
+                    <li><a href="#">Web E-posta Sistemi</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Alt Kısım (Copyright) -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="mb-0">2026 &copy; Tüm hakları saklıdır. Yalova Üniversitesi</p>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+     CHAT BOT (AKILLI ASİSTAN)
+     ============================================================ -->
+
+<!-- ============================================================
+     ERİŞİLEBİLİRLİK MENÜSÜ
+     ============================================================ -->
+<div class="a11y-container">
+    <button class="a11y-btn" id="a11yBtn" aria-label="Erişilebilirlik Menüsü">
+        <i class="fas fa-universal-access"></i>
+    </button>
+    <div class="a11y-window" id="a11yWindow">
+        <div class="a11y-header">
+            <h5 class="mb-0 text-white" style="font-size: 16px; font-weight: 600;"><i class="fas fa-wheelchair me-2"></i> Erişilebilirlik</h5>
+            <button class="a11y-close" id="a11yClose" aria-label="Kapat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="a11y-body">
+            <button class="a11y-option" id="a11y-text-inc">
+                <i class="fas fa-search-plus"></i> Metni Büyüt
+            </button>
+            <button class="a11y-option" id="a11y-contrast">
+                <i class="fas fa-adjust"></i> Yüksek Karşıtlık
+            </button>
+            <button class="a11y-option" id="a11y-grayscale">
+                <i class="fas fa-tint-slash"></i> Siyah Beyaz (Gri)
+            </button>
+            <button class="a11y-option" id="a11y-links">
+                <i class="fas fa-link"></i> Linkleri Vurgula
+            </button>
+            <button class="a11y-option a11y-reset" id="a11y-reset">
+                <i class="fas fa-redo"></i> Ayarları Sıfırla
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="chatbot-container">
+    <button class="chatbot-btn" id="chatbotBtn" aria-label="Asistanı Aç">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <div class="d-flex align-items-center gap-2">
+                <div class="chatbot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div>
+                    <h5 class="mb-0 text-white" style="font-size: 16px; font-weight: 600;">YÜ Asistan</h5>
+                    <small class="text-white-50" style="font-size: 12px;">Çevrimiçi</small>
+                </div>
+            </div>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Kapat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chat-message bot-message">
+                Merhaba! Ben Yalova Üniversitesi Akıllı Asistanı. Size nasıl yardımcı olabilirim?
+            </div>
+            <div class="chat-options mt-2">
+                <button class="chat-option-btn">Akademik Takvim</button>
+                <button class="chat-option-btn">Yemek Menüsü</button>
+                <button class="chat-option-btn">Öğrenci İşleri İletişim</button>
+            </div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Mesajınızı yazın..." autocomplete="off">
+            <button class="chatbot-send" id="chatbotSend" aria-label="Gönder">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     DUYURU POPUP (MODAL)
+     ============================================================ -->
+<div class="modal fade" id="announcementModal" tabindex="-1" aria-labelledby="announcementModalLabel" aria-hidden="true" data-i18n-ignore>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content custom-popup">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body text-center pt-0 px-4 pb-4">
+                <div class="popup-icon-wrap mb-3">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h4 class="fw-bold mb-3" style="color: var(--yu-crimson);">Önemli Duyuru</h4>
+                <p class="text-muted mb-4">2026-2027 Eğitim Öğretim Yılı Bahar Yarıyılı ders kayıtları başlamıştır. Tüm öğrencilerimize başarılar dileriz.</p>
+                <button type="button" class="btn btn-primary px-4 py-2 rounded-pill popup-btn" data-bs-dismiss="modal">İncele</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Özel JS -->
+<script src="js/core.js?v=1"></script>
+<script src="js/slider.js?v=1"></script>
+<script src="js/chatbot.js?v=1"></script>
+<script src="js/accessibility.js?v=1"></script>
+<script src="lang.js?v=1"></script>
+</body>
+</html>

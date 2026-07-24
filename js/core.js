@@ -126,11 +126,17 @@
     // ============================================================
     const announcementModalElement = document.getElementById('announcementModal');
     if (announcementModalElement) {
-        const announcementModal = new bootstrap.Modal(announcementModalElement);
-        // Sayfa yüklendikten 1 saniye sonra göster
-        setTimeout(() => {
-            announcementModal.show();
-        }, 1000);
+        // Sadece anasayfada açılması için kontrol
+        const path = window.location.pathname;
+        const isHomePage = path.endsWith('/') || path.endsWith('index.html');
+        
+        if (isHomePage) {
+            const announcementModal = new bootstrap.Modal(announcementModalElement);
+            // Sayfa yüklendikten 1 saniye sonra göster
+            setTimeout(() => {
+                announcementModal.show();
+            }, 1000);
+        }
     }
 
 /* ====================================================
